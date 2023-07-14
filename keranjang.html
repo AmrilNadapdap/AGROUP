@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OurGarden - Keranjang</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/js/all.min.js"></script>
+  <style>
+    .text-justify-custom {
+      text-align: justify;
+      text-justify: inter-word;
+    }
+  </style>
+</head>
+
+<body>
+  
+<!-- Navbar -->
+<nav class="fixed top-0 left-0 right-0 bg-gray-300 p-4 transition duration-300 transform" id="navbar"
+  style="transition-duration: 0.3s;">
+  <div class="container mx-auto flex justify-between items-center">
+    <a href="index.html" class="flex items-center">
+      <img src="img/KebunTaniLogo2.png" alt="KebunTaniLogo Logo" class="w-1000 h-10">
+    </a>
+    <div class="flex items-center space-x-4">
+      <form class="relative flex items-center">
+        <input type="text" placeholder="Cari" class="bg-white text-gray-700 rounded-full py-2 px-4 pr-10 focus:outline-none focus:ring-2 focus:ring-green-500">
+        <button type="submit" class="absolute right-0 top-0 mt-2 mr-3">
+          <i class="fas fa-search text-gray-500"></i>
+        </button>
+      </form>
+      <ul class="flex space-x-4 text-black">
+        <li><a href="index.html" class="hover:underline">Home</a></li>
+        <li><a href="product.html" class="hover:underline">Produk</a></li>
+        <li><a href="keranjang.html" class="hover:underline"><i class="fas fa-shopping-cart"></i></a></li>
+        <li><a href="#" class="hover:underline"><i class="fas fa-user"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- /Navbar -->
+
+<!-- Pop-up Akun -->
+<div id="accountPopup" class="fixed top-0 left-0 right-0 bottom-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
+  <div class="bg-white p-6 rounded-md">
+    <h3 class="text-lg font-bold mb-4">Akun</h3>
+    <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 mr-2" onclick="goToLogin()">Masuk</button>
+    <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2" onclick="goToSettings()">Pengaturan</button>
+  </div>
+</div>
+
+<script>
+  // Fungsi untuk mengarahkan ke halaman keranjang
+  function goToCart() {
+    window.location.href = "keranjang.html";
+  }
+
+  // Fungsi untuk toggle tampilan popup akun
+  function toggleAccountPopup() {
+    var accountPopup = document.getElementById('accountPopup');
+    accountPopup.classList.toggle('hidden');
+  }
+
+  // Fungsi untuk mengarahkan ke halaman login
+  function goToLogin() {
+    // Gantikan "#" dengan URL halaman login Anda
+    window.location.href = "#";
+  }
+
+  // Fungsi untuk mengarahkan ke halaman pengaturan
+  function goToSettings() {
+    // Gantikan "#" dengan URL halaman pengaturan Anda
+    window.location.href = "#";
+  }
+</script>
+
+
+<!-- Section Keranjang -->
+<section class="py-16 mt-5">
+  <div class="container mx-auto px-4 lg:px-8 mt-5">
+    <h2 class="text-2xl font-bold text-center">Keranjang</h2>
+
+    <div class="mt-10">
+      <!-- Product 1 -->
+      <div class="flex items-center border-b-2 border-gray-200 pb-5 mb-5">
+        <img src="img/NPK16.16.jpeg" alt="Product 1" class="w-16 h-auto mr-4">
+        <div>
+          <h3 class="text-lg font-bold">NPK 16.16.16</h3>
+          <p class="text-gray-700">Rp. 375.000</p>
+          <div class="flex items-center mt-2">
+            <input type="number" value="1" min="1" max="100" class="border border-gray-300 px-2 py-1 w-16">
+            <button class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 ml-4">Perbarui</button>
+            <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 ml-2" onclick="hapusProduk(this)"><i class="fas fa-trash-alt"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="flex items-center border-b-2 border-gray-200 pb-5 mb-5">
+        <img src="img/benih bintang asia.jpeg" alt="Product 2" class="w-16 h-auto mr-4">
+        <div>
+          <h3 class="text-lg font-bold">Benih Cabai Bintang Asia</h3>
+          <p class="text-gray-700">Rp.22.000</p>
+          <div class="flex items-center mt-2">
+            <input type="number" value="8" min="1" max="100" class="border border-gray-300 px-2 py-1 w-16">
+            <button class="bg-green-500 hover:bg-green-600 text-white px-3 py-1 ml-4">Perbarui</button>
+            <button class="bg-red-500 hover:bg-red-600 text-white px-3 py-1 ml-2" onclick="hapusProduk(this)"><i class="fas fa-trash-alt"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-center mt-10">
+        <a href="product.html" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 mr-2">Lanjut Belanja</a>
+        <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2" onclick="showPopup()">Pesan Sekarang</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pop-up Pesan -->
+<div id="popup" class="fixed top-0 left-0 right-0 bottom-0 bg-gray-900 bg-opacity-50 flex justify-center items-center hidden">
+  <div class="bg-white p-6 rounded-md">
+    <h3 class="text-lg font-bold mb-4">Pesan Sekarang</h3>
+    <p class="text-gray-700">Fitur ini segera hadir.</p>
+    <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 mt-4" onclick="hidePopup()">Tutup</button>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-gray-300 py-8">
+  <div class="container mx-auto text-center">
+    <p class="text-sm text-gray-600">© 2023 OurGarden. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Fungsi untuk menghapus produk dari keranjang
+  function hapusProduk(element) {
+    // Dapatkan elemen induk tombol hapus
+    var elemenInduk = element.parentNode.parentNode;
+    // Hapus elemen induk produk
+    elemenInduk.remove();
+  }
+
+  // Fungsi untuk menampilkan pop-up
+  function showPopup() {
+    var popup = document.getElementById('popup');
+    popup.classList.remove('hidden');
+  }
+
+  // Fungsi untuk menyembunyikan pop-up
+  function hidePopup() {
+    var popup = document.getElementById('popup');
+    popup.classList.add('hidden');
+  }
+</script>
+
+<script>
+  // Fungsi untuk mengubah tampilan navbar saat melakukan scroll
+  function toggleNavbar() {
+    const navbar = document.getElementById('navbar');
+    const scrollHeight = window.pageYOffset;
+
+    if (scrollHeight > 0) {
+      navbar.classList.add('hidden');
+    } else {
+      navbar.classList.remove('hidden');
+    }
+  }
+
+  // Panggil fungsi saat halaman dimuat dan saat melakukan scroll
+  window.addEventListener('load', toggleNavbar);
+  window.addEventListener('scroll', toggleNavbar);
+</script>
+
+</body>
+</html>

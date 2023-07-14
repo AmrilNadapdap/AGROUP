@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OurGarden - Products</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+<!-- Navbar -->
+<nav class="fixed top-0 left-0 right-0 bg-gray-300 p-4 transition duration-300 transform" id="navbar"
+  style="transition-duration: 0.3s;">
+  <div class="container mx-auto flex justify-between items-center">
+    <a href="index.html" class="flex items-center">
+      <img src="img/KebunTaniLogo2.png" alt="KebunTaniLogo Logo" class="w-1000 h-10">
+    </a>
+    <div class="flex items-center space-x-4">
+      <form class="relative flex items-center">
+        <input type="text" placeholder="Cari" class="bg-white text-gray-700 rounded-full py-2 px-4 pr-10 focus:outline-none focus:ring-2 focus:ring-green-500">
+        <button type="submit" class="absolute right-0 top-0 mt-2 mr-3">
+          <i class="fas fa-search text-gray-500"></i>
+        </button>
+      </form>
+      <ul class="flex space-x-4 text-black">
+        <li><a href="index.html" class="hover:underline">Home</a></li>
+        <li><a href="product.html" class="hover:underline">Produk</a></li>
+        <li><a href="keranjang.html" class="hover:underline"><i class="fas fa-shopping-cart"></i></a></li>
+        <li><a href="#" class="hover:underline"><i class="fas fa-user"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- /Navbar -->
+
+
+<!--Judul-->
+<section class="py-16 mt-5">
+  <div class="container mx-auto px-4 lg:px-8 mt-5">
+    <h2 class="text-2xl font-bold text-green-800 text-center">Cari Apa? Semua Ada</h2>
+    <h5 class="text-2xl font-bold text-red-700 text-center">Tidak Menjual Geprek</h5>
+    <!-- n/Judul -->
+
+    <!-- Kategori -->
+    <div class="flex justify-center mt-5">
+      <button onclick="filterProducts('all')" class="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded mx-2">Semua</button>
+      <button onclick="filterProducts('pupuk')" class="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded mx-2">Pupuk</button>
+      <button onclick="filterProducts('pestisida')" class="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded mx-2">Pestisida</button>
+      <button onclick="filterProducts('benih')" class="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded mx-2">Bibit</button>
+      <button onclick="filterProducts('alat')" class="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded mx-2">Alat</button>
+    </div>
+    <!-- n/Kategori -->
+
+
+    <!-- Product -->
+    <div id="productContainer" class="mt-10 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 ">
+      <!-- Product 1 -->
+      <div class="bg-white p-2 shadow-md max-w-xs max-h-100
+       rounded-lg flex flex-col mb-4" data-category="pupuk">
+        <img src="img/NPK16.16.jpeg" alt="Product 1" class="w-full h-auto">
+        <h2 class="text-xs font-bold mt-4">NPK 16.16.16</h2>
+        <p class="text-xsfont-bold mt-2">Rp. 375.000</p>
+        <button href="keranjang.html" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-2 rounded-full add-to-cart">Tambahkan ke Keranjang</button>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="bg-white p-2 shadow-md max-w-xs rounded-lg flex flex-col mb-4" data-category="pestisida">
+        <img src="img/tuntas-pes.jpg" alt="Product 2" class="w-full h-auto">
+        <h2 class="text-xs font-bold mt-4">Pestisida Tuntas</h2>
+        <p class="text-xsfont-bold mt-2">Rp. 73.900</p>
+        <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-2 rounded-full add-to-cart">Tambahkan ke Keranjang</button>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="bg-white p-2 shadow-md max-w-xs rounded-lg flex flex-col mb-4" data-category="pestisida">
+        <img src="img/trivia.jpg" alt="Product 3" class="w-full h-auto">
+        <h2 class="text-xs font-bold mt-4">Trivia 73 WP (200 Gr)</h2>
+        <p class="text-xsfont-bold mt-2">Rp. 85.000</p>
+        <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-4 rounded-full add-to-cart">Tambahkan ke Keranjang</button>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="bg-white p-2 shadow-md max-w-xs rounded-lg flex flex-col mb-4" data-category="pupuk">
+        <img src="img/csn-pupuk.jpg" alt="Product 4" class="w-full h-auto">
+        <h2 class="text-xs font-bold mt-4">Pupuk CSN (1 Kg)</h2>
+        <p class="text-xsfont-bold mt-2">Rp. 44.000</p>
+        <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-4 rounded-full add-to-cart">Tambahkan ke Keranjang</button>
+      </div>
+
+      <!-- Product 5 -->
+      <div class="bg-white p-2 shadow-md max-w-xs rounded-lg flex flex-col mb-4" data-category="benih">
+        <img src="img/benih bintang asia.jpeg" alt="Product 5" class="w-full h-auto">
+        <h2 class="text-xs font-bold mt-4">Benih Cabai Bintang Asia</h2>
+        <p class="text-xsfont-bold mt-2">Rp. 22.000</p>
+        <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-4 rounded-full add-to-cart">Tambahkan ke Keranjang</button>
+      </div>
+
+      <!-- Product 6 -->
+      <div class="bg-white p-2 shadow-md max-w-xs rounded-lg flex flex-col mb-4" data-category="alat">
+        <img src="img/CBA-Elektrik-removebg-preview.png" alt="Product 5" class="w-full h-auto">
+        <h2 class="text-xs font-bold mt-4">CBA-Elektrik 16 Liter</h2>
+        <p class="text-xsfont-bold mt-2">Rp. 480.000</p>
+        <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-4 rounded-full add-to-cart">Tambahkan ke Keranjang</button>
+      </div>
+
+      <!-- Product  7 -->
+      <div class="bg-white p-2 shadow-md max-w-xs rounded-lg flex flex-col mb-4" data-category="benih">
+        <img src="img/benih tomat gustavi.png" alt="Product 5" class="w-full h-auto">
+        <h2 class="text-xs font-bold mt-4">Benih Tomat Gustavi F1</h2>
+        <p class="text-xsfont-bold mt-2">Rp. 29.000</p>
+        <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-4 rounded-full add-to-cart">Tambahkan ke Keranjang</button>
+      </div>
+
+      <!-- Product  8 -->
+      <div class="bg-white p-2 shadow-md max-w-xs rounded-lg flex flex-col mb-4" data-category="alat">
+        <img src="img/Pressure Sparayer 2L.png" alt="Product 5" class="w-full h-auto">
+        <h2 class="text-xs font-bold mt-4">Pressure Sparayer 2L</h2>
+        <p class="text-xsfont-bold mt-2">Rp. 50.000</p>
+        <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-4 rounded-full add-to-cart">Tambahkan ke Keranjang</button>
+      </div>
+
+      <!-- Product  9 -->
+      <div class="bg-white p-2 shadow-md max-w-xs rounded-lg flex flex-col mb-4" data-category="pupuk">
+        <img src="img/MKP Pak Tani.png" alt="Product 5" class="w-full h-auto">
+        <h2 class="text-xs font-bold mt-4">MKP Pak Tani 1Kg</h2>
+        <p class="text-xsfont-bold mt-2">Rp. 57.000</p>
+        <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-4 rounded-full add-to-cart">Tambahkan ke Keranjang</button>
+      </div>
+
+        <!-- Product  10 -->
+        <div class="bg-white p-2 shadow-md max-w-xs rounded-lg flex flex-col mb-4" data-category="benih">
+          <img src="img/Jagung F1.png" alt="Product 5" class="w-full h-auto">
+          <h2 class="text-xs font-bold mt-4">Benih Jagung F1</h2>
+          <p class="text-xsfont-bold mt-2">Rp. 31.000</p>
+          <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-4 rounded-full add-to-cart">Tambahkan ke Keranjang</button>
+        </div>
+
+      <!-- double product -->
+            <!-- Product 1 -->
+            <div class="bg-white p-2 shadow-md max-w-xs max-h-100
+            rounded-lg flex flex-col mb-4" data-category="pupuk">
+             <img src="img/NPK16.16.jpeg" alt="Product 1" class="w-full h-auto">
+             <h2 class="text-xs font-bold mt-4">NPK 16.16.16</h2>
+             <p class="text-xsfont-bold mt-2">Rp. 375.000</p>
+             <button href="keranjang.html" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-2 rounded-full add-to-cart">Tambahkan ke Keranjang</button>
+           </div>
+     
+           <!-- Product 2 -->
+           <div class="bg-white p-2 shadow-md max-w-xs rounded-lg flex flex-col mb-4" data-category="pestisida">
+             <img src="img/tuntas-pes.jpg" alt="Product 2" class="w-full h-auto">
+             <h2 class="text-xs font-bold mt-4">Pestisida Tuntas</h2>
+             <p class="text-xsfont-bold mt-2">Rp. 73.900</p>
+             <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-2 rounded-full add-to-cart">Tambahkan ke Keranjang</button>
+           </div>
+     
+           <!-- Product 3 -->
+           <div class="bg-white p-2 shadow-md max-w-xs rounded-lg flex flex-col mb-4" data-category="pestisida">
+             <img src="img/trivia.jpg" alt="Product 3" class="w-full h-auto">
+             <h2 class="text-xs font-bold mt-4">Trivia 73 WP (200 Gr)</h2>
+             <p class="text-xsfont-bold mt-2">Rp. 85.000</p>
+             <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-4 rounded-full add-to-cart">Tambahkan ke Keranjang</button>
+           </div>
+     
+           <!-- Product 4 -->
+           <div class="bg-white p-2 shadow-md max-w-xs rounded-lg flex flex-col mb-4" data-category="pupuk">
+             <img src="img/csn-pupuk.jpg" alt="Product 4" class="w-full h-auto">
+             <h2 class="text-xs font-bold mt-4">Pupuk CSN (1 Kg)</h2>
+             <p class="text-xsfont-bold mt-2">Rp. 44.000</p>
+             <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-4 rounded-full add-to-cart">Tambahkan ke Keranjang</button>
+           </div>
+     
+           <!-- Product 5 -->
+           <div class="bg-white p-2 shadow-md max-w-xs rounded-lg flex flex-col mb-4" data-category="benih">
+             <img src="img/benih bintang asia.jpeg" alt="Product 5" class="w-full h-auto">
+             <h2 class="text-xs font-bold mt-4">Benih Cabai Bintang Asia</h2>
+             <p class="text-xsfont-bold mt-2">Rp. 22.000</p>
+             <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-4 rounded-full add-to-cart">Tambahkan ke Keranjang</button>
+           </div>
+     
+           <!-- Product 6 -->
+           <div class="bg-white p-2 shadow-md max-w-xs rounded-lg flex flex-col mb-4" data-category="alat">
+             <img src="img/CBA-Elektrik-removebg-preview.png" alt="Product 5" class="w-full h-auto">
+             <h2 class="text-xs font-bold mt-4">CBA-Elektrik 16 Liter</h2>
+             <p class="text-xsfont-bold mt-2">Rp. 480.000</p>
+             <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-4 rounded-full add-to-cart">Tambahkan ke Keranjang</button>
+           </div>
+     
+           <!-- Product  7 -->
+           <div class="bg-white p-2 shadow-md max-w-xs rounded-lg flex flex-col mb-4" data-category="benih">
+             <img src="img/benih tomat gustavi.png" alt="Product 5" class="w-full h-auto">
+             <h2 class="text-xs font-bold mt-4">Benih Tomat Gustavi F1</h2>
+             <p class="text-xsfont-bold mt-2">Rp. 29.000</p>
+             <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-4 rounded-full add-to-cart">Tambahkan ke Keranjang</button>
+           </div>
+     
+           <!-- Product  8 -->
+           <div class="bg-white p-2 shadow-md max-w-xs rounded-lg flex flex-col mb-4" data-category="alat">
+             <img src="img/Pressure Sparayer 2L.png" alt="Product 5" class="w-full h-auto">
+             <h2 class="text-xs font-bold mt-4">Pressure Sparayer 2L</h2>
+             <p class="text-xsfont-bold mt-2">Rp. 50.000</p>
+             <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-4 rounded-full add-to-cart">Tambahkan ke Keranjang</button>
+           </div>
+     
+           <!-- Product  9 -->
+           <div class="bg-white p-2 shadow-md max-w-xs rounded-lg flex flex-col mb-4" data-category="pupuk">
+             <img src="img/MKP Pak Tani.png" alt="Product 5" class="w-full h-auto">
+             <h2 class="text-xs font-bold mt-4">MKP Pak Tani 1Kg</h2>
+             <p class="text-xsfont-bold mt-2">Rp. 57.000</p>
+             <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-4 rounded-full add-to-cart">Tambahkan ke Keranjang</button>
+           </div>
+     
+             <!-- Product  10 -->
+             <div class="bg-white p-2 shadow-md max-w-xs rounded-lg flex flex-col mb-4" data-category="benih">
+               <img src="img/Jagung F1.png" alt="Product 5" class="w-full h-auto">
+               <h2 class="text-xs font-bold mt-4">Benih Jagung F1</h2>
+               <p class="text-xsfont-bold mt-2">Rp. 31.000</p>
+               <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-4 rounded-full add-to-cart">Tambahkan ke Keranjang</button>
+             </div>
+     
+      <!-- n/double product -->
+      <!-- n/product -->
+    </div>
+  </div>
+</section>
+
+
+<script>
+  // Fungsi untuk memfilter produk berdasarkan kategori
+  function filterProducts(category) {
+    const productContainer = document.getElementById('productContainer');
+    const products = productContainer.getElementsByClassName('bg-white');
+
+    if (category === 'all') {
+      // Tampilkan semua produk jika kategori "Semua" dipilih
+      for (let i = 0; i < products.length; i++) {
+        products[i].style.display = 'block';
+      }
+    } else {
+      // Sembunyikan produk yang tidak sesuai dengan kategori yang dipilih
+      for (let i = 0; i < products.length; i++) {
+        const product = products[i];
+        const productCategory = product.getAttribute('data-category');
+        if (productCategory === category) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      }
+    }
+  }
+
+  // Ambil elemen navbar
+  var navbar = document.getElementById('navbar');
+
+  // Menyimpan posisi scroll sebelumnya
+  var prevScrollPos = window.pageYOffset;
+
+  // Menggunakan event listener untuk mendeteksi scroll
+  window.onscroll = function() {
+    // Mengambil posisi scroll saat ini
+    var currentScrollPos = window.pageYOffset;
+
+    // Memeriksa apakah scroll ke bawah atau ke atas
+    if (prevScrollPos > currentScrollPos) {
+      // Menampilkan navbar saat scroll ke atas
+      navbar.style.transform = 'translateY(0)';
+    } else {
+      // Menyembunyikan navbar saat scroll ke bawah
+      navbar.style.transform = 'translateY(-100%)';
+    }
+
+    // Menyimpan posisi scroll saat ini sebagai posisi sebelumnya
+    prevScrollPos = currentScrollPos;
+  };
+</script>
+
+
+
+  <!-- Footer Section -->
+  <footer class="bg-gray-900 text-white py-4 flex-shrink-0">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div>
+        <p class="text-sm text-justify-custom mx-5">Masa depan pertanian berkelanjutan. Inspirasi bagi pertanian modern.
+          Dukungan petani, makanan untuk generasi mendatang. Inovasi dan pendidikan mewujudkan pertanian lestari. Koneksi
+          dengan alam melalui keajaiban pertanian.</p>
+      </div>
+      <div class="text-center md:text-center">
+        <p class="text-gray-400">Ikuti Kami:</p>
+        <div class="flex justify-center mt-2">
+          <a href="#" class="text-gray-400 hover:text-white mx-2">
+            <i class="fab fa-instagram text-sm"></i>
+          </a>
+          <a href="https://www.youtube.com/results?search_query=rifa+amril" class="text-gray-400 hover:text-white mx-2">
+            <i class="fab fa-youtube text-sm"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white mx-2">
+            <i class="fab fa-facebook text-sm"></i>
+          </a>
+        </div>
+      </div>
+      <div class="text-center md:text-right mt-4 md:mt-0">
+        <p class="text-xs mx-5">Informasi kontak dan email<br>
+          08xx-xxxx-xxxx<br>
+          ourgarden@support.co.id
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Empty Space to Push Footer to the Bottom -->
+  <div class="flex-grow"></div>
+
+  <div class="bg-gray-800 text-white py-2 text-center">
+    <p class="text-xs">© 2023 OurGarden. Hak cipta dilindungi undang-undang.</p>
+  </div>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.onscroll = function () {
+      if (window.pageYOffset > 50) {
+        navbar.classList.add('bg-white', 'text-gray-800');
+        navbar.classList.remove('bg-gray-300', 'text-white');
+      } else {
+        navbar.classList.add('bg-gray-300', 'text-white');
+        navbar.classList.remove('bg-white', 'text-gray-800');
+      }
+    };
+  </script>
+
+
+<!-- Modal Pop-up -->
+<div id="cartModal" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+  <div class="bg-gray-200 rounded-lg p-8">
+    <h2 class="text-2xl font-bold mb-4">Tambahkan ke Keranjang</h2>
+    <p class="mb-4">Masukkan jumlah produk:</p>
+    <input type="number" id="productQuantity" min="1" value="1" class="border border-gray-300 px-4 py-2 rounded-md mb-4">
+    <button id="addToCartButton" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Tambahkan</button>
+    <button id="closeModalButton" class="bg-gray-500 hover:bg-gray-600 text-white py-2 px-4 rounded ml-4">Tutup</button>
+  </div>
+</div>
+ <!-- n/Modal Pop-up -->
+
+
+<script>
+  const addToCartButtons = document.getElementsByClassName('add-to-cart');
+  const cartModal = document.getElementById('cartModal');
+  const closeModalButton = document.getElementById('closeModalButton');
+  const addToCartButton = document.getElementById('addToCartButton');
+  const productQuantity = document.getElementById('productQuantity');
+
+  function addToCartButtonClick(event) {
+    event.preventDefault();
+    cartModal.classList.remove('hidden');
+  }
+
+  function closeModal() {
+    cartModal.classList.add('hidden');
+  }
+
+  function addToCart() {
+    const quantity = parseInt(productQuantity.value);
+    if (quantity > 0) {
+      // Lakukan logika untuk menambahkan produk ke keranjang sesuai dengan jumlah yang dipilih
+      console.log(`Tambahkan ${quantity} produk ke keranjang`);
+    }
+    closeModal();
+  }
+
+  for (let i = 0; i < addToCartButtons.length; i++) {
+    addToCartButtons[i].addEventListener('click', addToCartButtonClick);
+  }
+
+  closeModalButton.addEventListener('click', closeModal);
+  addToCartButton.addEventListener('click', addToCart);
+</script>
+</body>
+
+<!-- Style -->
+<style>
+  .text-justify-custom {
+    text-align: justify;
+    text-justify: inter-word;
+  }
+</style>
+<!-- n/Style -->
+
+</html>

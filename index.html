@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website E-Commerce</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
+  <style>
+    .text-justify-custom {
+      text-align: justify;
+      text-justify: inter-word;
+    }
+  </style>
+</head>
+
+<body>
+  
+<!-- Navbar -->
+<nav class="fixed top-0 left-0 right-0 bg-gray-300 p-4 transition duration-300 transform" id="navbar"
+  style="transition-duration: 0.3s;">
+  <div class="container mx-auto flex justify-between items-center">
+    <a href="index.html" class="flex items-center">
+      <img src="img/KebunTaniLogo2.png" alt="KebunTaniLogo Logo" class="w-1000 h-10">
+    </a>
+    <div class="flex items-center space-x-4">
+      <form class="relative flex items-center">
+        <input type="text" placeholder="Cari" class="bg-white text-gray-700 rounded-full py-2 px-4 pr-10 focus:outline-none focus:ring-2 focus:ring-green-500">
+        <button type="submit" class="absolute right-0 top-0 mt-2 mr-3">
+          <i class="fas fa-search text-gray-500"></i>
+        </button>
+      </form>
+      <ul class="flex space-x-4 text-black">
+        <li><a href="index.html" class="hover:underline">Home</a></li>
+        <li><a href="product.html" class="hover:underline">Produk</a></li>
+        <li><a href="keranjang.html" class="hover:underline"><i class="fas fa-shopping-cart"></i></a></li>
+        <li><a href="#" class="hover:underline"><i class="fas fa-user"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- /Navbar -->
+
+
+
+<!-- Hero Section -->
+<section class="py-16">
+  <div class="container mx-auto">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="relative mx-auto">
+            <div class="bg-cover bg-center h-80" style="background-image: url('img/kebun1.jpeg');"></div>
+            <div
+              class="absolute inset-0 flex flex-col justify-center items-center bg-opacity-75 bg-gray-900 text-white p-8">
+              <h1 class="text-4xl font-bold mb-4">Majukan Pertanian Indonesia</h1>
+              <p class="text-lg text-center text-gray-300">Kami hadir untuk menginspirasi pertumbuhan di setiap ladang, dengan
+                memberikan informasi terkini tentang produk pupuk tani, petunjuk penggunaan yang tepat, dan manfaat luar
+                biasa bagi tanaman Anda. Bergabunglah dengan komunitas petani yang bersemangat di Panggoi Tani, dan
+                bersama-sama kita menciptakan masa depan pertanian yang berkelanjutan dan memberikan manfaat bagi generasi
+                mendatang.</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="relative mx-auto">
+            <div class="bg-cover bg-center h-80" style="background-image: url('img/kebun2.jpeg');"></div>
+            <div
+              class="absolute inset-0 flex flex-col justify-center items-center bg-opacity-75 bg-gray-900 text-white p-8">
+              <h1 class="text-4xl font-bold mb-4">Majukan Pertanian Indonesia - Slide 2</h1>
+              <p class="text-lg text-center text-gray-300">Konten slide kedua</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="relative mx-auto">
+            <div class="bg-cover bg-center h-80" style="background-image: url('img/kebun3.jpeg');"></div>
+            <div
+              class="absolute inset-0 flex flex-col justify-center items-center bg-opacity-75 bg-gray-900 text-white p-8">
+              <h1 class="text-4xl font-bold mb-4">Majukan Pertanian Indonesia - Slide 3</h1>
+              <p class="text-lg text-center text-gray-300">Konten slide ketiga</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper('.swiper-container', {
+    loop: true, // Mengaktifkan mode loop agar slide terus berputar
+    autoplay: {
+      delay: 5000, // Waktu delay antara slide (dalam milidetik)
+    },
+    pagination: {
+      el: '.swiper-pagination', // Menampilkan navigasi pagination
+    },
+  });
+</script>
+<!-- n/Hero Section -->
+
+
+  <!-- Product Section -->
+  <section class="py-16">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Product 1 -->
+      <div class="bg-white p-8 shadow-md">
+        <img src="product1.jpg" alt="Product 1" class="mb-4">
+        <h2 class="text-xl font-bold">Product 1</h2>
+        <p class="text-gray-600">Description of Product 1</p>
+        <p class="text-gray-800 font-bold mt-2">$99.99</p>
+        <a href="keranjang.html" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-4">Tambah ke Keranjang</a>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="bg-white p-8 shadow-md">
+        <img src="product2.jpg" alt="Product 2" class="mb-4">
+        <h2 class="text-xl font-bold">Product 2</h2>
+        <p class="text-gray-600">Description of Product 2</p>
+        <p class="text-gray-800 font-bold mt-2">Rp. 1/000.000</p>
+        <a href="keranjang.html" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-4">Tambah ke Keranjang</a>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="bg-white p-8 shadow-md">
+        <img src="product3.jpg" alt="Product 3" class="mb-4">
+        <h2 class="text-xl font-bold">Product 3</h2>
+        <p class="text-gray-600">Description of Product 3</p>
+        <p class="text-gray-800 font-bold mt-2">$199.99</p>
+        <a href="keranjang.html" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 mt-4">Tambah ke Keranjang</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-white py-4">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div>
+        <p class="text-sm text-justify-custom mx-5">Masa depan pertanian berkelanjutan. Inspirasi bagi pertanian modern.
+          Dukungan petani, makanan untuk generasi mendatang. Inovasi dan pendidikan mewujudkan pertanian lestari. Koneksi
+          dengan alam melalui keajaiban pertanian.</p>
+      </div>
+      <div class="text-center md:text-center">
+        <p class="text-gray-400">Ikuti Kami:</p>
+        <div class="flex justify-center mt-2">
+          <a href="#" class="text-gray-400 hover:text-white mx-2">
+            <i class="fab fa-instagram text-sm"></i>
+          </a>
+          <a href="https://www.youtube.com/results?search_query=rifa+amril" class="text-gray-400 hover:text-white mx-2">
+            <i class="fab fa-youtube text-sm"></i>
+          </a>
+          <a href="#" class="text-gray-400 hover:text-white mx-2">
+            <i class="fab fa-facebook text-sm"></i>
+          </a>
+        </div>
+      </div>
+      <div class="text-center md:text-right mt-4 md:mt-0">
+        <p class="text-xs mx-5">Informasi kontak dan email<br>
+          08xx-xxxx-xxxx<br>
+          ourgarden@support.co.id
+        </p>
+      </div>
+    </div>
+  </footer>
+  <!-- Copyright -->
+  <div class="bg-gray-800 text-white py-2 text-center">
+    <p class="text-xs">© 2023 OurGarden. Hak cipta dilindungi undang-undang.</p>
+  </div>
+  <!-- n/Footer -->
+
+</body>
+
+</html>

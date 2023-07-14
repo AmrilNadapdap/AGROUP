@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OurGarden - Products</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" rel="stylesheet">
+  <style>
+    .text-justify-custom {
+      text-align: justify;
+      text-justify: inter-word;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 left-0 right-0 bg-gray-300 p-4 transition duration-300 transform" id="navbar"
+    style="transition-duration: 0.3s;">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="index.html" class="text-2xl text-green-800 font-bold">OurGarden</a>
+      <div class="flex items-center space-x-4">
+        <form class="relative flex items-center">
+          <input type="text" placeholder="Cari" class="bg-white text-gray-700 rounded-full py-2 px-4 pr-10 focus:outline-none focus:ring-2 focus:ring-green-500">
+          <button type="submit" class="absolute right-0 top-0 mt-2 mr-3">
+            <i class="fas fa-search text-gray-500"></i>
+          </button>
+        </form>
+        <ul class="flex space-x-4 text-black">
+          <li><a href="index.html" class="hover:underline">Home</a></li>
+          <li><a href="product.html" class="hover:underline">Produk</a></li>
+          <li><a href="keranjang.html" class="hover:underline"><i class="fas fa-shopping-cart"></i></a></li>
+          <li><a href="#" class="hover:underline"><i class="fas fa-user"></i></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- n/Navbar -->
+
+  <!--Judul-->
+  <section class="py-16 mt-5">
+    <div class="container mx-auto px-4 lg:px-8 mt-5">
+      <h2 class="text-2xl font-bold text-blue-900 text-center">Cari Apa? Semua Ada</h2>
+      <h5 class="text-2xl font-bold text-red-700 text-center">Tidak Menjual Geprek</h5>
+      <!-- n/Judul -->
+
+      <!-- Kategori -->
+      <div class="flex justify-center mt-5">
+        <button onclick="filterProducts('all')" class="bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-4 rounded mx-2">Semua</button>
+        <button onclick="filterProducts('pupuk')" class="bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-4 rounded mx-2">Pupuk</button>
+        <button onclick="filterProducts('benih')" class="bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-4 rounded mx-2">Benih</button>
+      </div>
+      <!-- n/Kategori -->
+
+      <!-- Kategori -->
+<div class="flex justify-center mt-5">
+  <button onclick="filterProducts('all')" class="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded mx-2">Semua</button>
+  <button onclick="filterProducts('pupuk')" class="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded mx-2">Pupuk</button>
+  <button onclick="filterProducts('pestisida')" class="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded mx-2">Pestisida</button>
+  <button onclick="filterProducts('benih')" class="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded mx-2">Bibit</button>
+</div>
+<!-- n/Kategori -->
+
+<!-- Filter -->
+<div class="flex justify-between p-4 bg-gray-200 mt-5">
+  <!-- Jenis Toko -->
+  <div>
+    <h3 class="font-bold mb-2">Jenis Toko</h3>
+    <select class="border rounded p-2">
+      <option value="">Semua</option>
+      <!-- Pilihan jenis toko -->
+    </select>
+  </div>
+
+  <!-- Lokasi -->
+  <div>
+    <h3 class="font-bold mb-2">Lokasi</h3>
+    <select class="border rounded p-2">
+      <option value="">Semua</option>
+      <!-- Pilihan lokasi -->
+    </select>
+  </div>
+
+  <!-- Tipe Penjual -->
+  <div>
+    <h3 class="font-bold mb-2">Tipe Penjual</h3>
+    <select class="border rounded p-2">
+      <option value="">Semua</option>
+      <!-- Pilihan tipe penjual -->
+    </select>
+  </div>
+
+  <!-- Opsi Pengiriman -->
+  <div>
+    <h3 class="font-bold mb-2">Opsi Pengiriman</h3>
+    <div class="flex items-center">
+      <input type="checkbox" id="shippingOption1" class="mr-2">
+      <label for="shippingOption1">Opsi 1</label>
+    </div>
+    <div class="flex items-center">
+      <input type="checkbox" id="shippingOption2" class="mr-2">
+      <label for="shippingOption2">Opsi 2</label>
+    </div>
+    <!-- Opsi pengiriman lainnya -->
+  </div>
+
+  <!-- Range Harga -->
+  <div>
+    <h3 class="font-bold mb-2">Range Harga</h3>
+    <div class="flex items-center">
+      <input type="text" placeholder="Min" class="border rounded p-2 mr-2">
+      <input type="text" placeholder="Max" class="border rounded p-2">
+    </div>
+  </div>
+
+  <button class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded">Filter</button>
+</div>
+
+<!-- Product List -->
+<div id="productList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-5">
+  <!-- Product 1 -->
+  <div class="bg-white p-2 shadow-md max-w-xs rounded-lg" data-category="pupuk">
+    <!-- Product details -->
+  </div>
+  <!-- Product 2 -->
+  <div class="bg-white p-2 shadow-md max-w-xs rounded-lg" data-category="pestisida">
+    <!-- Product details -->
+  </div>
+  <!-- Product 3 -->
+  <div class="bg-white p-2 shadow-md max-w-xs rounded-lg" data-category="pestisida">
+    <!-- Product details -->
+  </div>
+  <!-- Product 4 -->
+  <div class="bg-white p-2 shadow-md max-w-xs rounded-lg" data-category="pupuk">
+    <!-- Product details -->
+  </div>
+  <!-- Product 5 -->
+  <div class="bg-white p-2 shadow-md max-w-xs rounded-lg" data-category="benih">
+    <!-- Product details -->
+  </div>
+</div>
+
+      <!-- Daftar Produk -->
+      <div class="mt-10 grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+        <!-- Produk 1 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="img/NPK16.16.jpeg" alt="Pupuk NPK 16.16" class="w-full h-44 object-cover">
+          <div class="p-4">
+            <h3 class="text-lg font-bold text-gray-800">Pupuk NPK 16.16</h3>
+            <div class="flex justify-between items-center mt-4">
+              <span class="font-bold text-blue-900">Rp 50.000</span>
+              <button onclick="addToCart('pupuk', 'Pupuk NPK 16.16', 50000)" class="bg-blue-600 text-white px-3 py-1 rounded">Tambahkan ke Keranjang</button>
+            </div>
+          </div>
+        </div>
+        <!-- n/Produk 1 -->
+
+        <!-- Produk 2 -->
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+          <img src="img/tuntas-pes.jpg" alt="Pestisida Tuntas PES" class="w-full h-44 object-cover">
+          <div class="p-4">
+            <h3 class="text-lg font-bold text-gray-800">Pestisida Tuntas PES</h3>
+            <div class="flex justify-between items-center mt-4">
+              <span class="font-bold text-blue-900">Rp 75.000</span>
+              <button onclick="addToCart('pestisida', 'Pestisida Tuntas PES', 75000)" class="bg-blue-600 text-white px-3 py-1 rounded">Tambahkan ke Keranjang</button>
+            </div>
+          </div>
+        </div>
+        <!-- n/Produk 2 -->
+      </div>
+      <!-- n/Daftar Produk -->
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-10 mt-20">
+    <div class="container mx-auto px-4">
+      <div class="md:flex md:flex-wrap md:-mx-4 py-6">
+        <div class="md:w-1/4 md:px-4">
+          <h6 class="text-xl font-bold mb-2">Tentang Kami</h6>
+          <ul class="list-none footer-links">
+            <li class="mt-2">
+              <a href="#" class="hover:underline">Tim Kami</a>
+            </li>
+            <li class="mt-2">
+              <a href="#" class="hover:underline">Kisah Kami</a>
+            </li>
+            <li class="mt-2">
+              <a href="#" class="hover:underline">Kerja Sama</a>
+            </li>
+          </ul>
+        </div>
+        <div class="md:w-1/4 md:px-4">
+          <h6 class="text-xl font-bold mb-2">Layanan</h6>
+          <ul class="list-none footer-links">
+            <li class="mt-2">
+              <a href="#" class="hover:underline">Pembelian</a>
+            </li>
+            <li class="mt-2">
+              <a href="#" class="hover:underline">Pengiriman</a>
+            </li>
+            <li class="mt-2">
+              <a href="#" class="hover:underline">Pengembalian</a>
+            </li>
+          </ul>
+        </div>
+        <div class="md:w-1/4 md:px-4">
+          <h6 class="text-xl font-bold mb-2">Ikuti Kami</h6>
+          <ul class="list-none footer-links">
+            <li class="mt-2">
+              <a href="#" class="hover:underline">Instagram</a>
+            </li>
+            <li class="mt-2">
+              <a href="#" class="hover:underline">Facebook</a>
+            </li>
+            <li class="mt-2">
+              <a href="#" class="hover:underline">Twitter</a>
+            </li>
+          </ul>
+        </div>
+        <div class="md:w-1/4 md:px-4">
+          <h6 class="text-xl font-bold mb-2">Hubungi Kami</h6>
+          <ul class="list-none footer-links">
+            <li class="mt-2">
+              <a href="#" class="hover:underline">FAQ</a>
+            </li>
+            <li class="mt-2">
+              <a href="#" class="hover:underline">Kontak</a>
+            </li>
+            <li class="mt-2">
+              <a href="#" class="hover:underline">Bantuan</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr class="border-gray-700 my-6">
+      <div class="text-center">
+        <p class="text-sm text-gray-500">© 2023 OurGarden. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- n/Footer -->
+
+  <script>
+    function filterProducts(category) {
+      // Menghapus semua produk dari tampilan
+      let products = document.querySelectorAll('.grid-cols-1, .grid-cols-2, .grid-cols-3, .grid-cols-4, .grid-cols-5');
+      products.forEach(product => {
+        product.style.display = 'none';
+      });
+
+      // Menampilkan produk berdasarkan kategori yang dipilih
+      let filteredProducts = document.querySelectorAll(`.${category}`);
+      filteredProducts.forEach(product => {
+        product.style.display = 'block';
+      });
+    }
+
+    function addToCart(type, name, price) {
+      // Logika tambah ke keranjang
+    }
+  </script>
+
+  
+<script>
+  // Fetch and display products based on selected filters
+  function fetchProducts(filters) {
+    // Make an API request with the selected filters
+    // Retrieve the relevant products from the backend
+    // Populate the product list based on the received data
+  }
+
+  // Handle filter button click event
+  document.querySelector('button').addEventListener('click', function() {
+    const filters = {
+      jenisToko: document.querySelector('#jenisToko').value,
+      lokasi: document.querySelector('#lokasi').value,
+      tipePenjual: document.querySelector('#tipePenjual').value,
+      opsiPengiriman1: document.querySelector('#shippingOption1').checked,
+      opsiPengiriman2: document.querySelector('#shippingOption2').checked,
+      minHarga: document.querySelector('#minHarga').value,
+      maxHarga: document.querySelector('#maxHarga').value
+    };
+
+    fetchProducts(filters);
+  });
+</script>
+
+</body>
+
+</html>
